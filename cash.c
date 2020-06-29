@@ -5,8 +5,8 @@
 
 int main(void)
 { 
-    int c
-    float n
+    int c;
+    float n;
   
 //promting for an answer, c - amount of coins, n - change owed
     do
