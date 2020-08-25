@@ -32,14 +32,7 @@ int main(void)
               sentencecount++;
           }
        }
-      // finding the sum of letters, words, sentences 
-    int sum0 = 0+lettercount; 
-    int sum1= 0+wordcount;
-    int sum2= 0+sentencecount;
-    
-    printf("%i letter(s)\n", sum0);
-    printf("%i word(s)\n", sum1);
-    printf("%i sentence(s)\n", sum2);
+
     
     // calculating the grade by formula
     
@@ -47,14 +40,14 @@ int main(void)
     
     if(grade<16 && grade >1)
       {
-        printf("Grade %.f\n", round(grade));
+        printf("(Grade %.f)\n", round(grade));
       }
     else if(grade<1)
       {
-        printf("Before grade 1\n");
+        printf("(Before grade 1)\n");
       }
     else if(grade>16)
       {
-        printf("Grade 16+\n");
+        printf("(Grade 16+)\n");
       }
 }
