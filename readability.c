@@ -32,9 +32,21 @@ int main(void)
               sentencecount++;
           }
        }
+       
+       
+ // finding the sum of letters, words, sentences
+ 
+    int sum0 = 0+lettercount;
+    int sum1= 0+wordcount;
+    int sum2= 0+sentencecount;
+
+    printf("%i letter(s)\n", sum0);
+    printf("%i word(s)\n", sum1);
+    printf("%i sentence(s)\n", sum2);
+
 
     
-    // calculating the grade by formula
+// calculating the grade by formula
     
     float grade = 0.0588 * (100 * (float) lettercount / (float) wordcount) - 0.296 * (100 * (float) sentencecount / (float) wordcount) - 15.8;
     
@@ -44,7 +56,7 @@ int main(void)
       }
     else if(grade<1)
       {
-        printf("Before grade 1\n");
+        printf("Before Grade 1\n");
       }
     else if(grade>16)
       {
