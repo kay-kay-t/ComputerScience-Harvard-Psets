@@ -12,33 +12,33 @@ int main(void)
     int sentencecount = 0;
 
 
-  // i = amount of symbols
-  // letterscount // wordscount // sentencecount
+    // i = amount of symbols
+    // letterscount // wordscount // sentencecount
      
   
     
-    for(int i=0; i<strlen(text);i++)
-      {
-          if((text[i]>= 65 && text[i] <= 90) || (text[i]>=97 && text[i]<=122))
-           {
-              lettercount++;
-           }
-          else if(text[i] == ' ')
-          {
-              wordcount++;
-          }
-          else if(text[i] == '.' || text[i] == '!' || text[i] == '?')
-          {
-              sentencecount++;
-          }
-       }
+    for (int i = 0; i < strlen(text); i++)
+    {
+        if ((text[i] >= 65 && text[i] <= 90) || (text[i] >= 97 && text[i] <= 122))
+        {
+            lettercount++;
+        }
+        else if (text[i] == ' ')
+        {
+            wordcount++;
+        }
+        else if (text[i] == '.' || text[i] == '!' || text[i] == '?')
+        {
+            sentencecount++;
+        }
+    }
        
        
- // finding the sum of letters, words, sentences
+// finding the sum of letters, words, sentences
  
-    int sum0 = 0+lettercount;
-    int sum1= 0+wordcount;
-    int sum2= 0+sentencecount;
+    int sum0 = 0 + lettercount;
+    int sum1 = 0 + wordcount;
+    int sum2 = 0 + sentencecount;
 
     printf("%i letter(s)\n", sum0);
     printf("%i word(s)\n", sum1);
@@ -48,18 +48,19 @@ int main(void)
     
 // calculating the grade by formula
     
-    float grade = 0.0588 * (100 * (float) lettercount / (float) wordcount) - 0.296 * (100 * (float) sentencecount / (float) wordcount) - 15.8;
+    float grade = 0.0588 * (100 * (float) lettercount / (float) wordcount) - 0.296 * (100 * (float) sentencecount 
+                  / (float) wordcount) - 15.8;
     
-    if(grade<16 && grade >1)
-      {
+    if (grade < 16 && grade > 1)
+    {
         printf("Grade %.f\n", round(grade));
-      }
-    else if(grade<1)
-      {
+    }
+    else if (grade < 1)
+    {
         printf("Before Grade 1\n");
-      }
-    else if(grade>16)
-      {
+    }
+    else if (grade > 16)
+    {
         printf("Grade 16+\n");
-      }
+    }
 }
