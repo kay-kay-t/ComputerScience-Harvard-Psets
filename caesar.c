@@ -40,7 +40,7 @@ int main(int argc, string argv[])
       return 0;
 
     }
-    else
+    else if(argc != 2)
       {
         printf("Usage: ./caesar key\n");
         return 1;
