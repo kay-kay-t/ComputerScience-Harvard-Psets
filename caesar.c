@@ -11,14 +11,14 @@ int main(int argc, string argv[])
   // check there is two arguments and argv[1] is a digit  
     if (argc == 2 && isdigit(*argv[1]))
     { 
-      char* j; //chek if key is numeric, convert to integer 
-      int k = (int)strtol (argv[1], &j, 10);
-      if (*j != '\0') 
-      {
-       return 1;
-      }
-      
-      
+      for (int j = 0; j < strlen(argv[1]); j++)
+{
+    if (isdigit(argv[1][j]) == 0)
+    {
+        return 1;
+    }
+}
+      int k = atoi(argv[1]);
     // getting plaintext  
 
       string p = get_string("plaintext:");
