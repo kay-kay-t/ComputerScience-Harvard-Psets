@@ -5,19 +5,28 @@
 #include <stdlib.h>
 
 
+
 int main(int argc, string argv[])
-{
+{   
   // check there is two arguments and argv[1] is a digit  
     if (argc == 2 && isdigit(*argv[1]))
-    {
-      int k = atoi(argv[1]); //convert key into integer
+    { 
+      char* j; //chek if key is numeric, convert to integer 
+      int k = (int)strtol (argv[1], &j, 10);
+      if (*j != '\0') 
+      {
+       return 1;
+      }
+      
+      
     // getting plaintext  
+
       string p = get_string("plaintext:");
       printf("ciphertext:");
        
       
     for (int i = 0, n = strlen(p); i < n; i++) //checks if all char are numerical
-     {
+    {
     //check if it's uppercase; change to alphabetic; apply formula ci = (pi + k) % 26; change back to ascii
       if(p[i]>64 && p[i]<91)
        {
@@ -34,20 +43,16 @@ int main(int argc, string argv[])
         printf("%c", p[i]);
       }
       
-      }
-      
+    } 
       printf("\n");
       return 0;
+    }  
 
-    }
-    else if(argc != 2)
+    else
       {
         printf("Usage: ./caesar key\n");
         return 1;
       }
-    else 
-    {
-      return 0;
-    }
+  
      
 }
