@@ -155,7 +155,8 @@ void tabulate(void)
             {
               j++;
             }
-        candidates[preferences[i][j]].votes++; 
+        candidates[preferences[i][j]].votes++;
+        break;
         }
     }
     return;
@@ -190,7 +191,6 @@ int find_min(void)
         if(candidates[i].eliminated == false && lv > candidates[i].votes)
         {
             lv = candidates[i].votes;
-            return lv;
         }
     }
     
