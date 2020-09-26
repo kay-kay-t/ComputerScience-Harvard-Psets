@@ -10,16 +10,16 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         // where j is a column
         for (int j = 0; j < width; j++)
         {
-        // get values of each color and devide it by 3 to find avarage
-        float red = image[i][j].rgbtRed;
-        float blue = image[i][j].rgbtBlue;
-        float green = image[i][j].rgbtGreen;
+            // get values of each color and devide it by 3 to find avarage
+            float red = image[i][j].rgbtRed;
+            float blue = image[i][j].rgbtBlue;
+            float green = image[i][j].rgbtGreen;
 
-        float average = round((red + blue + green) / 3);
+            float average = round((red + blue + green) / 3);
 
-        image[i][j].rgbtRed = average;
-        image[i][j].rgbtBlue = average;
-        image[i][j].rgbtGreen = average;
+            image[i][j].rgbtRed = average;
+            image[i][j].rgbtBlue = average;
+            image[i][j].rgbtGreen = average;
         }
 
     }
@@ -33,37 +33,37 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-         int red = image[i][j].rgbtRed;
-         int blue = image[i][j].rgbtBlue;
-         int green = image[i][j].rgbtGreen;
+            int red = image[i][j].rgbtRed;
+            int blue = image[i][j].rgbtBlue;
+            int green = image[i][j].rgbtGreen;
 
             int sepiaRed = round(.393 * red + .769 * green + .189 * blue);
             int sepiaGreen = round(.349 * red + .686 * green + .168 * blue);
             int sepiaBlue = round(.272 * red + .534 * green + .131 * blue);
-             if (sepiaRed < 256)
-             {
-                 image[i][j].rgbtRed = sepiaRed;
-             }
-             else
-             {
-                 image[i][j].rgbtRed = 255;
-             }
-             if (sepiaGreen < 256)
-             {
-                 image[i][j].rgbtGreen = sepiaGreen;
-             }
-             else
-             {
-                 image[i][j].rgbtGreen = 255;
-             }
-             if (sepiaBlue < 256)
-             {
+            if (sepiaRed < 256)
+            {
+                image[i][j].rgbtRed = sepiaRed;
+            }
+            else
+            {
+                image[i][j].rgbtRed = 255;
+            }
+            if (sepiaGreen < 256)
+            {
+                image[i][j].rgbtGreen = sepiaGreen;
+            }
+            else
+            {
+                image[i][j].rgbtGreen = 255;
+            }
+            if (sepiaBlue < 256)
+            {
                 image[i][j].rgbtBlue = sepiaBlue;
-             }
-             else
-             {
-                 image[i][j].rgbtBlue = 255;
-             }
+            }
+            else
+            {
+                image[i][j].rgbtBlue = 255;
+            }
         }
     }
     return;
@@ -75,7 +75,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     RGBTRIPLE newimage[height][width];
     for (int i = 0; i < height; i++)
     {
-        for(int j = 0; j < width; j++)
+        for (int j = 0; j < width; j++)
         {
             int m = (width - 1 - j);
             newimage[i][m] = image[i][j];
@@ -95,13 +95,13 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-   // create a copy of array to new image to blur
-   RGBTRIPLE newImage[height][width];
+    // create a copy of array to new image to blur
+    RGBTRIPLE newImage[height][width];
 
-   for (int i = 0; i < height; i++)
-   {
+    for (int i = 0; i < height; i++)
+    {
         for (int j = 0; j < width; j++)
-       {
+        {
             newImage[i][j] = image[i][j];
         }
     }
