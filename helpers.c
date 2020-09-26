@@ -11,9 +11,9 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
         // get values of each color and devide it by 3 to find avarage
-        int red = image[i][j].rgbtRed;
-        int blue = image[i][j].rgbtBlue;
-        int green = image[i][j].rgbtGreen;
+        float red = image[i][j].rgbtRed;
+        float blue = image[i][j].rgbtBlue;
+        float green = image[i][j].rgbtGreen;
 
         float average = (red + blue + green) / 3;
 
