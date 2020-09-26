@@ -83,6 +83,14 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             image[i][m] = temp;
         }
     }
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            // place the newly flipped values into the old array
+            image[i][j] = newimage[i][j];
+        }
+    }
     return;
 }
 
