@@ -3,6 +3,7 @@
 
 int main(int argc, char *argv[])
 {
+    #define block_size 512
  // Check for invalid input
     if (argc != 2)
     {
