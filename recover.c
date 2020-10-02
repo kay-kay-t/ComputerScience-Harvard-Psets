@@ -3,16 +3,16 @@
 
 int main(int argc, char *argv[])
 {
-    #define block_size 512
- // Check for invalid input
+#define block_size 512
+// Check for invalid input
     if (argc != 2)
     {
         printf("Usage: ./recover image\n");
         return 1;
     }
 // Open input file    
-    char* input_file = argv[1];
-    FILE* input_pointer = fopen(input_file, "r");
+    char *input_file = argv[1];
+    FILE *input_pointer = fopen(input_file, "r");
     if (input_file == NULL)
     {
         printf("Unable to open: %s\n", input_file);
