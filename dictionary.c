@@ -15,7 +15,7 @@ typedef struct node
 }
 node;
 // Number of buckets in hash table
-const unsigned int N = 26;
+const unsigned int N = 65536;
 // Initialise positive hash value using unsigned int
 unsigned int head;
 // Initialise (positive) hash table word count
