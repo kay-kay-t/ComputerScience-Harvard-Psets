@@ -65,20 +65,12 @@ unsigned int hash(const char *word)
 {
     // TODO ---- right
     int hash = 0;
-    int n;
+    int n = 0;
     for (int i = 0; word[i] != '\0'; i++)
-    {
-        if (toupper(isalpha(word[i])))
         {
-            n = word[i] - 'a' + 1;
+            hash += word[i];
         }
-        else
-        {
-            n = 26;
-        }
-
         hash = ((hash << 3) + n);
-    }
     return hash % N;
 }
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
