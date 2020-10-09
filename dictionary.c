@@ -64,14 +64,12 @@ bool load(const char *dictionary)
 unsigned int hash(const char *word)
 {
     // TODO ---- right
-    int hash = 0;
-    int n = 0;
-    for (int i = 0; word[i] != '\0'; i++)
-        {
-            hash += word[i];
-        }
-        hash = ((hash << 3) + n);
-    return hash % N;
+    unsigned int head = 0;
+    for (int i = 0, n = strlen(word); i < n; i++)
+    {
+        head = (head << 2) ^ word[i];
+    }
+    return head % N;
 }
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
