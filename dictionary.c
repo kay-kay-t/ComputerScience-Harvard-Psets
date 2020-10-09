@@ -57,16 +57,16 @@ bool load(const char *dictionary)
     fclose(file);
     return true;
 }
-// Hashes word to a number
+  // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO 
-    unsigned int h = 0;
-    for (int i = 0, n = strlen(word); i < n; i++)
+    unsigned long hash = 5381;
+    int c;
+    while ((c = toupper(*word++)))
     {
-        h = (h << 2) ^ (int)word[i];
+        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
     }
-    return h % N;
+    return hash % N;
 }
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
