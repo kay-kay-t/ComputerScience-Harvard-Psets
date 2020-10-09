@@ -64,7 +64,7 @@ unsigned int hash(const char *word)
     unsigned int h = 0;
     for (int i = 0, n = strlen(word); i < n; i++)
     {
-        h = (h << 2) ^ word[i];
+        h = (h << 2) ^ (int)word[i];
     }
     return h % N;
 }
