@@ -14,62 +14,59 @@ typedef struct node
     struct node *next;
 }
 node;
-// no. of buckets in hash table
+// Number of buckets in hash table
 const unsigned int N = 26;
-// initialise positive hash value using unsigned int
-unsigned int hash_value;
-// initialise (positive) hash table word count
+// Initialise positive hash value using unsigned int
+unsigned int head;
+// Initialise (positive) hash table word count
 unsigned int word_count;
-// hash table
+// Hash table
 node *table[N];
 // Loads dict into memory, returning true if successful else false
 bool load(const char *dictionary)
 {
-    // Open dict
+    // Open dictionary
     FILE *file = fopen(dictionary, "r");
-// If file is not opened, return false
+// Check if return value is NULL
     if (file == NULL)
     {
         return false;
     }
-    // storage space for word
+    // Reading strings from file
     char word[LENGTH + 1];
-// Scan dict for strings that are not the end of the file
-    while (fscanf(file, "%s", word) != EOF)
+    while (fscanf (file, "%s", word) != EOF)
     {
-        // Allocate memory for new node
-        node *n = malloc(sizeof(node));
-// If malloc returns NULL, return false
-        if (n == NULL)
+        node *new_node = malloc(sizeof(node));
+        // If malloc returns NULL, return false
+        if (new_node == NULL)
         {
             return false;
         }
-// Pointer to next node and word itself
-        strcpy(n->word, word);
+        // Pointer to next node and word itself
+        strcpy(new_node->word, word);
         // Hash the word to get hash value
-        hash_value = hash(word);
+        head = hash(word);
         // Set new pointer
-        n->next = table[hash_value];
+        new_node->next = table[head];
         // Set head to new pointer
-        table[hash_value] = n;
-        // Increment word count
+        table[head] = new_node;
+        // Repeat for each word
         word_count++;
     }
 // Close file
     fclose(file);
-// If dict is loaded, return true
     return true;
 }
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO ---- right
-    unsigned int head = 0;
+    // TODO 
+    unsigned int h = 0;
     for (int i = 0, n = strlen(word); i < n; i++)
     {
-        head = (head << 2) ^ word[i];
+        h = (h << 2) ^ word[i];
     }
-    return head % N;
+    return h % N;
 }
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
@@ -77,29 +74,27 @@ unsigned int size(void)
     // Check if there are any words
     if (word_count > 0)
     {
-        // Return count
         return word_count;
     }
-    // Else
     return 0;
 }
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    //hash the word to get hash value
-    hash_value = hash(word);
-    //access the linked list
-    node *cursor = table[hash_value];
-//go through the linked list
-    while (cursor != NULL)
+    //Hash the word to get hash value
+    head = hash(word);
+    //Access the linked list, where`s pointer - cursor
+    node *pointer = table[head];
+    //Go through the linked list
+    while (pointer != NULL)
     {
-        //check if the word matches
-        if (strcasecmp(word, cursor->word) == 0)
+        //Check if the word matches
+        if (strcasecmp(word, pointer->word) == 0)
         {
             return true;
         }
-//move cursor to next node
-        cursor = cursor->next;
+        //Move cursor to next node
+        pointer = pointer->next;
     }
 return false;
 }
@@ -110,19 +105,16 @@ bool unload(void)
     for (int i = 0; i < N; i++)
     {
         // Set cursor to this each bucket location
-        node *cursor = table[i];
-// If cursor is not NULL, free
-        while (cursor)
+        node *pointer = table[i];
+        while (pointer != NULL)
         {
-            // Create temp
-            node *tmp = cursor;
+            node *tmp = pointer;
             // Move cursor to next node
-            cursor = cursor->next;
-            // Free up temp
+            pointer = pointer->next;
             free(tmp);
         }
-// If cursor is NULL
-        if (i == N - 1 && cursor == NULL)
+        // If cursor is NULL
+        if (i == N - 1 && pointer == NULL)
         {
             return true;
         }

@@ -110,7 +110,7 @@ bool unload(void)
     for (int i = 0; i < N; i++)
     {
         // Set cursor to this each bucket location
-        node *cursor = table[i];
+        node *cursor = table[i]; 
 // If cursor is not NULL, free
         while (cursor)
         {
