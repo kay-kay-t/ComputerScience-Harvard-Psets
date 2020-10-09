@@ -61,10 +61,10 @@ bool load(const char *dictionary)
 unsigned int hash(const char *word)
 {
     unsigned long hash = 5381;
-    int c;
-    while ((c = toupper(*word++)))
+    int k;
+    while ((k = toupper(*word++)))
     {
-        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+        hash = ((hash << 5) + hash) + k; //hash * 33 + k//
     }
     return hash % N;
 }
