@@ -34,7 +34,7 @@ bool load(const char *dictionary)
     }
     // Reading strings from file
     char word[LENGTH + 1];
-    while (fscanf (file, "%s", word) != EOF)
+    while (fscanf(file, "%s", word) != EOF)
     {
         node *new_node = malloc(sizeof(node));
         // If malloc returns NULL, return false
@@ -57,7 +57,7 @@ bool load(const char *dictionary)
     fclose(file);
     return true;
 }
-  // Hashes word to a number
+// Hashes word to a number
 unsigned int hash(const char *word)
 {
     unsigned long hash = 5381;
@@ -96,7 +96,7 @@ bool check(const char *word)
         //Move cursor to next node
         pointer = pointer->next;
     }
-return false;
+    return false;
 }
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
