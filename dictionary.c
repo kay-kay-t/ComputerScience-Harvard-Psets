@@ -77,9 +77,9 @@ unsigned int hash(const char *word)
             n = 27;
         }
 
-        hash = ((hash << 3) + n) % N;
+        hash = ((hash << 3) + n);
     }
-    return hash;
+    return hash % N;
 }
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
