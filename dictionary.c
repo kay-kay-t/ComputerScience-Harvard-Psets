@@ -68,13 +68,13 @@ unsigned int hash(const char *word)
     int n;
     for (int i = 0; word[i] != '\0'; i++)
     {
-        if (toupper(isalpha(word[i++])))
+        if (toupper(isalpha(word[i])))
         {
             n = word[i] - 'a' + 1;
         }
         else
         {
-            n = 27;
+            n = 26;
         }
 
         hash = ((hash << 3) + n);
