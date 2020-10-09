@@ -68,7 +68,7 @@ unsigned int hash(const char *word)
     int n;
     for (int i = 0; word[i] != '\0'; i++)
     {
-        if (isalpha(word[i]))
+        if (toupper(word[i]))
         {
             n = word[i] - 'a' + 1;
         }
