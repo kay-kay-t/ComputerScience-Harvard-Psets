@@ -1,12 +1,12 @@
 from cs50 import get_float
 
-#Promting for an answer, n - change owed, c - amount of coins
+# Promting for an answer, n - change owed, c - amount of coins
 while True:
     n = get_float("Change owed: ")
     if n >= 0:
         break
 
-#Converting to cents
+# Converting to cents
 n = round(n * 100)
 c = 0
 while n > 0:
@@ -23,5 +23,5 @@ while n > 0:
         n -= 1
         c += 1
 
-#Printing number of coins used
+# Printing number of coins used
 print(c)
