@@ -5,10 +5,9 @@ while True:
     m = n + 1
     if n >= 1 and n <= 8:
         break
-
-for i in range(0, n):
+for i in range(0, n, ): 
     hashes = i + 1
     spaces = m - hashes
 
-    print(" " * spaces, end="")
+    print(" " * (spaces - 1), end="")
     print("#" * hashes)
