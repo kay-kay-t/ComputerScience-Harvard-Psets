@@ -10,16 +10,16 @@ sentencecount = 0
 for i in range(len(text)):
         
     if text[i].isalpha():
-        lettercount+=1
+        lettercount += 1
     elif text[i] == ' ':
-        wordcount+=1
+        wordcount += 1
     elif text[i] == '.' or text[i] == '!' or text[i] == '?':
-        sentencecount+=1
+        sentencecount += 1
        
 # calculating the grade by formula
 L = lettercount / wordcount * 100
 S = sentencecount / wordcount * 100
-grade = round (0.0588 * L - 0.296 * S - 15.8)
+grade = round(0.0588 * L - 0.296 * S - 15.8)
 if grade > 16:
     print("Grade 16+")
 elif grade > 1 and grade < 17:
